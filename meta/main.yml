@@ -4,6 +4,3 @@ dependencies:
     when:       skipdeps is not defined
   - role:       'python'
     when:       skipdeps is not defined
-  - role:       'pi'
-    when:       skipdeps is not defined
-

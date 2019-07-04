@@ -70,11 +70,11 @@ symlinks:
     src:                "/etc/nginx/sites-available/transmission.ssl"
     dest:               "/etc/nginx/sites-enabled/transmission.ssl"
 initialize_files:
-  - owner:              'pi'
-    group:              'pi'
+  - owner:              'debian-transmission'
+    group:              'debian-transmission'
     mode:               '0644'
     dest:               '/var/log/update_transmission_blocklist.ret'
-  - owner:              'pi'
-    group:              'pi'
+  - owner:              'debian-transmission'
+    group:              'debian-transmission'
     mode:               '0644'
     dest:               '/var/log/update_transmission_blocklist.log'

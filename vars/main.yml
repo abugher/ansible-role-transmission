@@ -101,7 +101,7 @@ sync_dirs:
 remove_files:
   - '/etc/openvpn/nordvpn.conf'
 shell_commands:
-  - command:            'sed "s#^auth-user-pass.*\$#auth-user-pass /storage/nordvpn_up#" /etc/openvpn/nordvpn/ovpn_udp/us4001.nordvpn.com.udp.ovpn > /etc/openvpn/nordvpn.conf'
+  - command:            sed 's#^auth-user-pass.*$#auth-user-pass /storage/nordvpn_up#' /etc/openvpn/nordvpn/ovpn_udp/us4001.nordvpn.com.udp.ovpn > /etc/openvpn/nordvpn.conf
     user:               'root'
     chdir:              '/'
     creates:            '/etc/openvpn/nordvpn.conf'

@@ -1,0 +1,5 @@
+---
+- name:                 'check configuration file freshness'
+  shell:                'fresh_content="$(sed "s#^auth-user-pass.*$#auth-user-pass /storage/nordvpn_up#" /etc/openvpn/nordvpn/ovpn_udp/us4001.nordvpn.com.udp.ovpn)"; current_content="$(cat /etc/openvpn/nordvpn.conf)"; test "${fresh_content}" == "${current_content}"'
+  failed_when:          false
+  register:             check_conf_freshness_result

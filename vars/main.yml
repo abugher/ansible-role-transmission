@@ -87,10 +87,10 @@ symlinks:
     group:              'root'
     src:                "/etc/nginx/sites-available/transmission.ssl"
     dest:               "/etc/nginx/sites-enabled/transmission.ssl"
-  - owner:              'root'
-    group:              'root'
-    src:                '/etc/openvpn/nordvpn/ovpn_udp/us4001.nordvpn.com.udp.ovpn'
-    dest:               '/etc/openvpn/nordvpn.conf'
+#  - owner:              'root'
+#    group:              'root'
+#    src:                '/etc/openvpn/nordvpn/ovpn_udp/us4001.nordvpn.com.udp.ovpn'
+#    dest:               '/etc/openvpn/nordvpn.conf'
 sync_dirs:
   - src:                '../../../sensitive_ansible/roles/transmission/files/conf/ovpn_tcp/'
     dest:               '/etc/openvpn/nordvpn/ovpn_tcp/'
@@ -98,6 +98,13 @@ sync_dirs:
   - src:                '../../../sensitive_ansible/roles/transmission/files/conf/ovpn_udp/'
     dest:               '/etc/openvpn/nordvpn/ovpn_udp/'
     delete:             'yes'
+remove_files:
+  - '/etc/openvpn/nordvpn.conf'
+shell_commands:
+  - command:            'sed "s#^auth-user-pass.*\$#auth-user-pass /storage/nordvpn_up#" /etc/openvpn/nordvpn/ovpn_udp/us4001.nordvpn.com.udp.ovpn > /etc/openvpn/nordvpn.conf'
+    user:               'root'
+    chdir:              '/'
+    creates:            '/etc/openvpn/nordvpn.conf'
 initialize_files:
   - owner:              'debian-transmission'
     group:              'debian-transmission'

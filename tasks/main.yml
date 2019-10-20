@@ -9,8 +9,13 @@
 - include:              '../tasks/lines_in_files.yml'
 - include:              '../tasks/sync_dirs.yml'
 - include:              '../tasks/symlinks.yml'
+- include:              'check_conf_freshness.yml'
+- include:              '../tasks/remove_files.yml'
+  when:                 0 != check_conf_freshness_result.rc
+- include:              '../tasks/shell_commands.yml'
 - include:              '../tasks/initialize_files.yml'
 - include:              '../tasks/start_services.yml'
 - include:              '../tasks/restart_services.yml'
   when:                 sync_dirs_result.changed
                         or lines_in_files_result.changed
+                        or remove_files_result.changed

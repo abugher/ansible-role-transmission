@@ -65,7 +65,6 @@ install_files:
     group:              'root'
     src:                '../../../sensitive_ansible/roles/transmission/files/conf/nordvpn_up'
     dest:               '/storage/nordvpn_up'
-install_files_ignore_result:
   - owner:              'debian-transmission'
     group:              'debian-transmission'
     mode:               '0600'
@@ -87,10 +86,6 @@ symlinks:
     group:              'root'
     src:                "/etc/nginx/sites-available/transmission.ssl"
     dest:               "/etc/nginx/sites-enabled/transmission.ssl"
-#  - owner:              'root'
-#    group:              'root'
-#    src:                '/etc/openvpn/nordvpn/ovpn_udp/us4001.nordvpn.com.udp.ovpn'
-#    dest:               '/etc/openvpn/nordvpn.conf'
 sync_dirs:
   - src:                '../../../sensitive_ansible/roles/transmission/files/conf/ovpn_tcp/'
     dest:               '/etc/openvpn/nordvpn/ovpn_tcp/'
@@ -118,4 +113,4 @@ start_services:
   - 'openvpn'
 restart_services:
   - 'openvpn'
-  - 'transmission'
+  - 'transmission-daemon'

@@ -1,3 +1,4 @@
 #!/bin/bash
+/usr/sbin/iptables -A OUTPUT -m owner --uid-owner debian-transmission -d 127.0.0.0/8 -j ACCEPT
 /usr/sbin/iptables -A OUTPUT -m owner --uid-owner debian-transmission -d 192.168.11.0/24 -j ACCEPT
 /usr/sbin/iptables -A OUTPUT -m owner --uid-owner debian-transmission ! -o tun0 -j REJECT --reject-with icmp-port-unreachable

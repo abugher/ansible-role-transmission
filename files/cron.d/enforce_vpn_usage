@@ -1,2 +1,2 @@
 # m     h       dom     mon     dow     user    command
-@reboot                                 root    iptables -A OUTPUT ! -o tun0 -m owner --uid-owner debian-transmission -j REJECT --reject-with icmp-port-unreachable
+@reboot                                 root    /usr/local/bin/enforce_vpn_usage

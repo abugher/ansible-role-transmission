@@ -1,0 +1,5 @@
+---
+- include:              '../tasks/install_files.yml'
+  vars:
+    install_files:      "{{ install_files_for_enforce_vpn_usage }}"
+  register:             enforce_vpn_usage_result

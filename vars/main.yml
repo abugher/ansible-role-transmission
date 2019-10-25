@@ -70,7 +70,6 @@ install_files:
     mode:               '0600'
     src:                '../../../sensitive_ansible/roles/transmission/files/conf/settings.json'
     dest:               '/etc/transmission-daemon/settings.json'
-install_files_for_enforce_vpn_usage:
   - owner:              'root'
     group:              'root'
     mode:               '0644'
@@ -120,8 +119,6 @@ initialize_files:
     group:              'debian-transmission'
     mode:               '0644'
     dest:               '/var/log/update_transmission_blocklist.log'
-start_services:
-  - 'openvpn'
 restart_services:
   - 'openvpn'
   - 'transmission-daemon'

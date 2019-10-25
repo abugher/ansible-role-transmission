@@ -1,5 +1,7 @@
 ---
 dependencies:
+  - role:       'escrow'
+    when:       skipdeps is not defined
   - role:       'nginx'
     when:       skipdeps is not defined
   - role:       'python'

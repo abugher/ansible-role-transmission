@@ -13,7 +13,6 @@
 - include:              '../tasks/remove_files.yml'
   when:                 check_conf_freshness_result.changed
 - include:              '../tasks/shell_commands.yml'
-- include:              '../tasks/initialize_files.yml'
 - include:              '../tasks/restart_services.yml'
   when:                 sync_dirs_result.changed
                         or lines_in_files_result.changed

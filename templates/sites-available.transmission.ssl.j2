@@ -1,10 +1,10 @@
 server {
-  listen 9092 default_server ssl;
-  ssl_certificate /etc/ssl/certs/{{ inventory_hostname }}.pem;
-  ssl_certificate_key /etc/ssl/private/{{ inventory_hostname }}.pem;
-  server_name transmission transmission.neuronpointer.net;
+  listen                        9092 default_server ssl;
+  ssl_certificate               /etc/ssl/certs/chain.pem;
+  ssl_certificate_key           /etc/ssl/private/{{ inventory_hostname }}.pem;
+  server_name transmission      transmission.neuronpointer.net;
 
-  access_log /var/log/nginx/transmission.access.log;
+  access_log                    /var/log/nginx/transmission.access.log;
 
   location / {
     proxy_pass http://localhost:9091;
@@ -17,12 +17,12 @@ server {
 }
 
 server {
-  listen 443 ssl;
-  ssl_certificate /etc/ssl/certs/{{ inventory_hostname }}.pem;
-  ssl_certificate_key /etc/ssl/private/{{ inventory_hostname }}.pem;
-  server_name transmission transmission.neuronpointer.net;
+  listen                        443 ssl;
+  ssl_certificate               /etc/ssl/certs/chain.pem;
+  ssl_certificate_key           /etc/ssl/private/{{ inventory_hostname }}.pem;
+  server_name                   transmission transmission.neuronpointer.net;
 
-  access_log /var/log/nginx/transmission.access.log;
+  access_log                    /var/log/nginx/transmission.access.log;
 
   location / {
     proxy_pass http://localhost:9091;

@@ -1,0 +1,3 @@
+[submodule "files/transmission-dark-theme"]
+	path = files/transmission-dark-theme
+	url = https://github.com/specktator/transmission-dark-theme.git

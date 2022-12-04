@@ -1,0 +1,29 @@
+div#torrent_container, 
+div#torrent_inspector,
+ul.torrent_list li.torrent,
+ul.torrent_list li.torrent.even {
+  color:                #ffffff;
+  background-color:     #000000;
+}
+ul.torrent_list li.torrent.compact div.torrent_name,
+ul.torrent_list li.torrent div.torrent_name,
+div#torrent_inspector div.tracker_host,
+div#torrent_inspector ul.tier_list div.tracker_activity {
+  color:                #ffffff;
+}
+ul.torrent_list li.torrent:hover,
+div#torrent_inspector ul.tier_list li.odd,
+div#torrent_inspector ul.tier_list li.even,
+#inspector-page-info {
+  background-color:     #222222;
+}
+ul.torrent_list li.torrent.selected,
+ul.torrent_list li.torrent.selected:hover,
+ul.torrent_list li.torrent.selected div.torrent_name,
+ul.torrent_list li.torrent.selected:hover div.torrent_name,
+ul.torrent_list li.torrent.compact.selected div.torrent_name,
+ul.torrent_list li.torrent.compact.selected:hover div.torrent_name {
+  color:                #000000;
+  background-color:     #ffffff;
+}
+

@@ -1,0 +1,9 @@
+---
+- name:                 'inject CSS'
+  lineinfile:
+    line:               '                <link href="./style/transmission/dark.css" type="text/css" rel="stylesheet" />'
+    regexp:             'transmission/dark.css'
+    dest:               '/usr/share/transmission/web/index.html'
+    state:              'present'
+    insertbefore:       '</head>'
+  register:             css_result

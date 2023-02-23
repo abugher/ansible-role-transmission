@@ -1,4 +1,8 @@
 ---
+dependencies:
+  - 'escrow'
+  - 'nginx'
+  - 'python'
 install_packages:
   - 'transmission-daemon'
   - 'transmission-cli'

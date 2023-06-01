@@ -1,6 +1,6 @@
 ---
 - include:              '../tasks/dependencies.yml'
-- include_vars:         "../../../sensitive_ansible/inventory/host_vars/{{ inventory_hostname }}.yml"
+- include_vars:         "../../../sensitive-ansible/inventory/host_vars/{{ inventory_hostname }}.yml"
 - include:              '../tasks/install_packages.yml'
 - include:              '../tasks/install_python_packages.yml'
 - include:              '../tasks/disable_services.yml'

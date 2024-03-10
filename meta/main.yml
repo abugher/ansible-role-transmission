@@ -1,0 +1,8 @@
+---
+dependencies:
+  - role:     'escrow'
+    tags:     
+      - 'dependency'
+  - role:     'nginx'
+    tags:     
+      - 'dependency'

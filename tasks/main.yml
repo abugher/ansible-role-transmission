@@ -16,7 +16,7 @@
 - include_tasks:        '../tasks/restart_services.yml'
   when:                 sync_dirs_result.changed
                         or lines_in_files_result.changed
-                        or remove_files_result.changed
+                        or check_conf_freshness_result.changed
                         or install_files_result.changed
 # Reboot for firewall rules.
 - include_tasks:        '../tasks/reboot.yml'

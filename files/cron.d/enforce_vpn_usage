@@ -1,2 +1,2 @@
 # m     h       dom     mon     dow     user    command
-@reboot                                 root    /usr/local/bin/enforce_vpn_usage > /var/log/enforce_vpn_usage.log 2>&1
+#@reboot                                 root    /usr/local/bin/enforce_vpn_usage > /var/log/enforce_vpn_usage.log 2>&1

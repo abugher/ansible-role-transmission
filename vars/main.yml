@@ -6,6 +6,7 @@ install_packages:
   - 'iptables'
 disable_services:        
   - 'transmission-daemon'
+  - 'openvpn'
 template_files:
   - owner:              'root'
     group:              'root'
@@ -126,5 +127,4 @@ shell_commands:
     chdir:              '/'
     creates:            '/etc/openvpn/nordvpn.conf'
 restart_services:
-  - 'openvpn'
   - 'transmission-daemon'

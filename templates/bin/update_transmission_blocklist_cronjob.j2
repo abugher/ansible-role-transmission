@@ -1,0 +1,4 @@
+#!/bin/bash
+
+/usr/bin/transmission-remote -n transmission:{{ rpc_password }} --blocklist-update > /var/log/update_transmission_blocklist.log
+echo $? > /var/log/update_transmission_blocklist.ret

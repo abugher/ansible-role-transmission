@@ -5,19 +5,17 @@
 - include_tasks:        '../tasks/template_files.yml'
 - include_tasks:        '../tasks/create_files.yml'
 - include_tasks:        '../tasks/install_files.yml'
-- include_tasks:        'tasks/install_files_while_down.yml'
-- include_tasks:        '../tasks/lines_in_files.yml'
-- include_tasks:        '../tasks/sync_dirs.yml'
 - include_tasks:        '../tasks/symlinks.yml'
-- include_tasks:        'check_conf_freshness.yml'
-- include_tasks:        '../tasks/remove_files.yml'
-  when:                 check_conf_freshness_result.changed
-- include_tasks:        '../tasks/shell_commands.yml'
 - include_tasks:        '../tasks/restart_services.yml'
-  when:                 sync_dirs_result.changed
-                        or lines_in_files_result.changed
-                        or check_conf_freshness_result.changed
+  when:                 template_files_result.changed
                         or install_files_result.changed
-# Reboot for firewall rules.
-- include_tasks:        '../tasks/reboot.yml'
+                        or symlinks_result.changed
+# If settings.json changed, it needs to be written (again) while
+# transmission-daemon is down, or else it will be overwritten on exit.
+- include_tasks:        '../tasks/stop_services.yml'
   when:                 install_files_result.changed
+- include_tasks:        '../tasks/install_files.yml'
+  when:                 stop_services_result is defined and stop_services_result.changed
+- include_tasks:        '../tasks/start_services.yml'
+  when:                 stop_services_result is defined and stop_services_result.changed
+

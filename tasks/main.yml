@@ -5,7 +5,7 @@
 - include_tasks:        '../tasks/template_files.yml'
 - include_tasks:        '../tasks/create_files.yml'
 - include_tasks:        '../tasks/install_files.yml'
-- include_tasks:        '../tasks/install_files_ignore_result.yml'
+- include_tasks:        'tasks/install_files_while_down.yml'
 - include_tasks:        '../tasks/lines_in_files.yml'
 - include_tasks:        '../tasks/sync_dirs.yml'
 - include_tasks:        '../tasks/symlinks.yml'
